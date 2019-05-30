@@ -26,7 +26,7 @@ Source0:       http://pecl.php.net/get/%{pecl_name}-%{version}%{?prever}.tgz
 
 BuildRequires: php-devel > 5.6
 BuildRequires: php-pear
-BuildRequires: pkgconfig(librabbitmq) >= 0.5.2
+BuildRequires: pkgconfig(librabbitmq) >= 0.7.1
 %if %{with_tests}
 BuildRequires: rabbitmq-server
 %endif
