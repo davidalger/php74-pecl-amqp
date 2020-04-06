@@ -1,6 +1,6 @@
 # Fedora spec file for php-pecl-amqp
 #
-# Copyright (c) 2012-2018 Remi Collet
+# Copyright (c) 2012-2020 Remi Collet
 # License: CC-BY-SA
 # http://creativecommons.org/licenses/by-sa/4.0/
 #
@@ -18,11 +18,11 @@
 
 Summary:       Communicate with any AMQP compliant server
 Name:          php-pecl-amqp
-Version:       1.9.4
-Release:       5%{?dist}
+Version:       1.10.2
+Release:       1%{?dist}
 License:       PHP
-URL:           http://pecl.php.net/package/amqp
-Source0:       http://pecl.php.net/get/%{pecl_name}-%{version}%{?prever}.tgz
+URL:           https://pecl.php.net/package/amqp
+Source0:       https://pecl.php.net/get/%{pecl_name}-%{version}%{?prever}.tgz
 
 BuildRequires: php-devel > 5.6
 BuildRequires: php-pear
@@ -93,6 +93,9 @@ extension = %{pecl_name}.so
 ; call to AMQPQueue::get() or AMQPQueue::consume() during which
 ; the AMQP_AUTOACK flag is not set.
 ;amqp.prefetch_count = 3
+;amqp.prefetch_size = 0
+;amqp.global_prefetch_count =0
+;amqp.global_prefetch_size =0
 
 ; The virtual host on the broker to which to connect.
 ;amqp.vhost = /
@@ -102,6 +105,7 @@ extension = %{pecl_name}.so
 ;amqp.read_timeout = 0
 ;amqp.write_timeout = 0
 ;amqp.connect_timeout = 0
+;amqp.rpc_timeout = 0
 
 ;amqp.channel_max = 256
 ;amqp.frame_max = 131072
@@ -222,6 +226,9 @@ exit $ret
 
 
 %changelog
+* Mon Apr  6 2020 Remi Collet <remi@remirepo.net> - 1.10.2-1
+- update to 1.10.2
+
 * Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.9.4-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
